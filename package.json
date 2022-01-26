@@ -1,0 +1,12 @@
+{
+  "name": "algorithms",
+  "version": "0.1.0",
+  "description": "A project to study algorithms and data structures",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Filipe dias",
+  "license": "ISC"
+}
