@@ -4,7 +4,10 @@
         "es2021": true
     },
     "extends": [
-        "airbnb-base"
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -12,8 +15,57 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "eslint-plugin-import-helpers",
+        "prettier"
     ],
     "rules": {
+        "camelcase": "off",
+        "import/no-unresolved": "error",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "interface",
+                "format": ["PascalCase"],
+                "custom": {
+                "regex": "^I[A-Z]",
+                "match": true
+                }
+            }
+        ],
+        "class-methods-use-this": "off",
+        "import/prefer-default-export": "off",
+        "no-shadow": "off",
+        "no-console": "off",
+        "no-useless-constructor": "off",
+        "no-use-before-define": "off",
+        "no-empty-function": "off",
+        "no-param-reassign": "off",
+        "lines-between-class-members": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never"
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": ["module", "/^@/", ["parent", "sibling", "index"]],
+                "alphabetize": { "order": "asc", "ignoreCase": true }
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            { "devDependencies": ["**/*.spec.js"] }
+        ],
+        "prettier/prettier": "error"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
     }
 }
