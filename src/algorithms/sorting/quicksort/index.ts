@@ -1,3 +1,5 @@
+import { swap } from "..";
+
 function quicksort(list: number[], start = 0, end = -1) {
   if (list.length === 1) return;
 
@@ -24,12 +26,6 @@ function partition(list: number[], start: number, end: number): number {
   swap(list, index, end);
 
   return index;
-}
-
-function swap(list: number[], indexA: number, indexB: number) {
-  const temp = list[indexA];
-  list[indexA] = list[indexB];
-  list[indexB] = temp;
 }
 
 export default quicksort;
