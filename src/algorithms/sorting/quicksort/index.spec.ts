@@ -4,6 +4,7 @@ describe("Tests quicksort algorithm", () => {
   it("Should be able to maintain a already sorted list", () => {
     const list = [1, 2, 3, 5, 9, 20, 28, 32, 39, 42, 76, 87, 99, 112];
     const sortedList = [1, 2, 3, 5, 9, 20, 28, 32, 39, 42, 76, 87, 99, 112];
+
     quicksort(list);
 
     expect(list).toStrictEqual(sortedList);
@@ -12,6 +13,7 @@ describe("Tests quicksort algorithm", () => {
   it("Should be able to sort a random list", () => {
     const list = [2, 72, 5, 91, 111, 63, 10, 88, 3, 42, 25, 0, 30, 17, 1];
     const sortedList = [0, 1, 2, 3, 5, 10, 17, 25, 30, 42, 63, 72, 88, 91, 111];
+
     quicksort(list);
 
     expect(list).toStrictEqual(sortedList);
