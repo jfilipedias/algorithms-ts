@@ -5,9 +5,13 @@ function selectionSort(list: number[]) {
     let minValueIndex = i;
 
     for (let j = minValueIndex; j < list.length; j += 1) {
-      if (list[j] < list[minValueIndex]) minValueIndex = j;
+      if (list[j] < list[minValueIndex]) {
+        minValueIndex = j;
+      }
 
-      if (list[i] > list[minValueIndex]) swap(list, i, minValueIndex);
+      if (list[i] > list[minValueIndex]) {
+        swap(list, i, minValueIndex);
+      }
     }
   }
 }
