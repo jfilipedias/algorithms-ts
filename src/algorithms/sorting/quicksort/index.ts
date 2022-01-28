@@ -1,7 +1,7 @@
 import { swap } from "..";
 
 function quicksort(list: number[], start = 0, end = -1) {
-  if (list.length === 1) return;
+  if (list.length <= 1) return;
 
   if (end === -1) end = list.length - 1;
 
