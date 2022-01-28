@@ -1,25 +1,25 @@
-function mergeSort(list: number[], start = 0, end = -1) {
+function mergeSort(list: number[], begin = 0, end: number = undefined) {
   if (list.length < 1) return;
 
-  if (end === -1) end = list.length;
+  if (end === undefined) end = list.length;
 
-  if (end - start > 1) {
-    const middle = Math.floor((end + start) / 2);
+  if (end - begin > 1) {
+    const middle = Math.floor((end + begin) / 2);
 
-    mergeSort(list, start, middle);
+    mergeSort(list, begin, middle);
     mergeSort(list, middle, end);
-    merge(list, start, middle, end);
+    merge(list, begin, middle, end);
   }
 }
 
-function merge(list: number[], start: number, middle: number, end: number) {
-  const left = list.slice(start, middle);
+function merge(list: number[], begin: number, middle: number, end: number) {
+  const left = list.slice(begin, middle);
   const right = list.slice(middle, end);
 
   let topLeft = 0;
   let topRight = 0;
 
-  for (let i = start; i < end; i += 1) {
+  for (let i = begin; i < end; i += 1) {
     if (left[topLeft] <= right[topRight] || topRight >= right.length) {
       list[i] = left[topLeft];
       topLeft += 1;
