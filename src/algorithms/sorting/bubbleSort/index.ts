@@ -1,4 +1,4 @@
-import { swap } from "..";
+import { swap } from "../utils";
 
 function bubbleSort(list: number[]) {
   for (let i = 0; i < list.length - 1; i += 1) {

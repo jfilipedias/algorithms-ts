@@ -2,9 +2,9 @@ function binarySearch(
   list: number[],
   item: number,
   begin = 0,
-  end: number = undefined
+  end: number = null
 ): number {
-  if (end === undefined) end = list.length - 1;
+  if (end === null) end = list.length - 1;
 
   if (begin <= end) {
     const middle = Math.floor((end + begin) / 2);

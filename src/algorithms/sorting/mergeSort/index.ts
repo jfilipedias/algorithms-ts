@@ -1,7 +1,7 @@
-function mergeSort(list: number[], begin = 0, end: number = undefined) {
+function mergeSort(list: number[], begin = 0, end: number = null) {
   if (list.length < 1) return;
 
-  if (end === undefined) end = list.length;
+  if (end === null) end = list.length;
 
   if (end - begin > 1) {
     const middle = Math.floor((end + begin) / 2);

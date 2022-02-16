@@ -5,7 +5,7 @@ class LinkedList<Type> {
   public length: number;
 
   constructor() {
-    this.head = undefined;
+    this.head = null;
     this.length = 0;
   }
 

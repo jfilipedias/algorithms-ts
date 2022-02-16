@@ -1,9 +1,9 @@
-import { swap } from "..";
+import { swap } from "../utils";
 
-function quicksort(list: number[], begin = 0, end: number = undefined) {
+function quicksort(list: number[], begin = 0, end: number = null) {
   if (list.length <= 1) return;
 
-  if (end === undefined) end = list.length - 1;
+  if (end === null) end = list.length - 1;
 
   if (begin < end) {
     const pivotIndex = partition(list, begin, end);
