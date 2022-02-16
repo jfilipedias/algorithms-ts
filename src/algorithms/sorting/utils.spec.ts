@@ -1,4 +1,4 @@
-import { swap } from ".";
+import { swap } from "./utils";
 
 describe("Test the sorting common functions", () => {
   it("Should be able to swap list elements", () => {
