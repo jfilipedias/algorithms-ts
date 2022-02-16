@@ -36,6 +36,10 @@ class Queue<Type> {
   public isEmpty(): boolean {
     return this.list.isEmpty();
   }
+
+  public toString(): string {
+    return this.list.toString();
+  }
 }
 
 export { Queue };
