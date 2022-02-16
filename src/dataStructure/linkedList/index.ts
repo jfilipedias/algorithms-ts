@@ -96,7 +96,7 @@ class LinkedList<Type> {
   }
 
   public getFirst(): Type {
-    if (!this.head) {
+    if (this.isEmpty()) {
       throw new Error("Can not get element from an empty list.");
     }
 
@@ -104,7 +104,7 @@ class LinkedList<Type> {
   }
 
   public getLast(): Type {
-    if (!this.head) {
+    if (this.isEmpty()) {
       throw new Error("Can not get element from an empty list.");
     }
 
@@ -157,6 +157,10 @@ class LinkedList<Type> {
     }
 
     return count;
+  }
+
+  public isEmpty(): boolean {
+    return !this.head;
   }
 
   public toString(): string {
