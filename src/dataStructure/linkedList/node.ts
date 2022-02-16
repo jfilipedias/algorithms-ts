@@ -1,9 +1,9 @@
 class Node<Type> {
-  public data: Type;
+  public value: Type;
   public next?: Node<Type>;
 
-  constructor(data: Type, next: Node<Type> = null) {
-    this.data = data;
+  constructor(value: Type, next: Node<Type> = null) {
+    this.value = value;
     this.next = next;
   }
 }

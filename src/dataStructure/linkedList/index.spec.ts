@@ -1,7 +1,7 @@
 import LinkedList from ".";
 
 describe("Test linked list data structure", () => {
-  it("should be able to create an empty list", () => {
+  it("Should be able to create an empty list", () => {
     const list = new LinkedList<number>();
 
     expect(list.size()).toBe(0);
@@ -15,7 +15,7 @@ describe("Test linked list data structure", () => {
     );
   });
 
-  it("should be able to add multiple elements to the list", () => {
+  it("Should be able to add multiple elements to the list", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(13);
@@ -25,7 +25,7 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("9 -> 13 -> 0 -> null");
   });
 
-  it("should be able to prepend element to the list", () => {
+  it("Should be able to prepend element to the list", () => {
     const list = new LinkedList<number>();
     list.prepend(9);
     list.prepend(13);
@@ -35,7 +35,7 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("0 -> 13 -> 9 -> null");
   });
 
-  it("should be able to insert element to the list", () => {
+  it("Should be able to insert element to the list", () => {
     const list = new LinkedList<number>();
     list.append(37);
     list.append(0);
@@ -48,7 +48,7 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("-12 -> -13 -> 69 -> 37 -> 0 -> null");
   });
 
-  it("should not be able to insert a element to a no-existing index", () => {
+  it("Should not be able to insert a element to a no-existing index", () => {
     const list = new LinkedList<number>();
     expect(() => list.insert(2, 13)).toThrow("Index out of range.");
 
@@ -56,7 +56,7 @@ describe("Test linked list data structure", () => {
     expect(() => list.insert(2, 13)).toThrow("Index out of range.");
   });
 
-  it("should be able to delete a existing element", () => {
+  it("Should be able to delete a existing element", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(-2);
@@ -72,7 +72,7 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("-2 -> 0 -> null");
   });
 
-  it("should not be able to delete a non-existing element", () => {
+  it("Should not be able to delete a non-existing element", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(13);
@@ -83,7 +83,7 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("9 -> 13 -> 0 -> null");
   });
 
-  it("should not be able to delete element from an empty list", () => {
+  it("Should not be able to delete element from an empty list", () => {
     const list = new LinkedList<number>();
 
     expect(() => list.delete(15)).toThrow(
@@ -91,7 +91,7 @@ describe("Test linked list data structure", () => {
     );
   });
 
-  it("should be able to delete element at a specific index", () => {
+  it("Should be able to delete element at a specific index", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(7);
@@ -112,7 +112,7 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("7 -> 0 -> null");
   });
 
-  it("should not be able to delete element at a non-existing index", () => {
+  it("Should not be able to delete element at a non-existing index", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(7);
@@ -120,7 +120,7 @@ describe("Test linked list data structure", () => {
     expect(() => list.deleteAt(3)).toThrow("Index out of range.");
   });
 
-  it("should be able to get element at a specific index", () => {
+  it("Should be able to get element at a specific index", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(13);
@@ -133,12 +133,12 @@ describe("Test linked list data structure", () => {
     expect(list.getLast()).toBe(0);
   });
 
-  it("should not be able to get element from an empty list", () => {
+  it("Should not be able to get element from an empty list", () => {
     const list = new LinkedList<number>();
     expect(() => list.get(1)).toThrow("Index out of range.");
   });
 
-  it("should be able to set element at a specific index", () => {
+  it("Should be able to set element at a specific index", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(13);
@@ -152,12 +152,12 @@ describe("Test linked list data structure", () => {
     expect(list.toString()).toBe("-12 -> 13 -> 37 -> null");
   });
 
-  it("should not be able to set element from an empty list", () => {
+  it("Should not be able to set element from an empty list", () => {
     const list = new LinkedList<number>();
     expect(() => list.set(1, 0)).toThrow("Index out of range.");
   });
 
-  it("should be able to get the index of a element", () => {
+  it("Should be able to get the index of a element", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(13);
@@ -169,7 +169,7 @@ describe("Test linked list data structure", () => {
     expect(list.indexOf(15)).toBe(-1);
   });
 
-  it("should be able to clear a existing list", () => {
+  it("Should be able to clear a existing list", () => {
     const list = new LinkedList<number>();
     list.append(9);
     list.append(13);
