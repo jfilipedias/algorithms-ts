@@ -64,6 +64,17 @@ class LinkedList<Type> {
 
     this.length += 1;
   }
+
+  public toString(): string {
+    let node = this.head;
+    let str = "";
+    while (node) {
+      str += `${node.data} -> `;
+      node = node.next;
+    }
+    str += "null";
+    return str;
+  }
 }
 
 export default LinkedList;
