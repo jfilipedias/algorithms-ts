@@ -1,11 +1,11 @@
 import LinkedList from ".";
 
 describe("Test linked list data structure", () => {
-  it("Should be able to create an empty list", () => {
+  it("Should be able to create an empty linked list", () => {
     const list = new LinkedList<number>();
 
     expect(list.size()).toBe(0);
-    expect(list.toString()).toBe("null");
+    expect(list.toString()).toBe("");
     expect(() => list.get(0)).toThrow("Index out of range.");
     expect(() => list.getFirst()).toThrow(
       "Can not get element from an empty list."
@@ -22,7 +22,7 @@ describe("Test linked list data structure", () => {
     list.append(0);
 
     expect(list.size()).toBe(3);
-    expect(list.toString()).toBe("9 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("9, 13, 0");
   });
 
   it("Should be able to prepend element to the list", () => {
@@ -32,7 +32,7 @@ describe("Test linked list data structure", () => {
     list.prepend(0);
 
     expect(list.size()).toBe(3);
-    expect(list.toString()).toBe("0 -> 13 -> 9 -> null");
+    expect(list.toString()).toBe("0, 13, 9");
   });
 
   it("Should be able to insert element to the list", () => {
@@ -45,7 +45,7 @@ describe("Test linked list data structure", () => {
     list.insert(2, 69);
 
     expect(list.size()).toBe(5);
-    expect(list.toString()).toBe("-12 -> -13 -> 69 -> 37 -> 0 -> null");
+    expect(list.toString()).toBe("-12, -13, 69, 37, 0");
   });
 
   it("Should not be able to insert a element to a no-existing index", () => {
@@ -65,11 +65,11 @@ describe("Test linked list data structure", () => {
 
     expect(list.delete(9)).toBe(true);
     expect(list.size()).toBe(3);
-    expect(list.toString()).toBe("-2 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("-2, 13, 0");
 
     expect(list.delete(13)).toBe(true);
     expect(list.size()).toBe(2);
-    expect(list.toString()).toBe("-2 -> 0 -> null");
+    expect(list.toString()).toBe("-2, 0");
   });
 
   it("Should not be able to delete a non-existing element", () => {
@@ -80,7 +80,7 @@ describe("Test linked list data structure", () => {
 
     expect(list.delete(15)).toBe(false);
     expect(list.size()).toBe(3);
-    expect(list.toString()).toBe("9 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("9, 13, 0");
   });
 
   it("Should not be able to delete element from an empty list", () => {
@@ -101,15 +101,15 @@ describe("Test linked list data structure", () => {
 
     list.deleteAt(0);
     expect(list.size()).toBe(4);
-    expect(list.toString()).toBe("7 -> 13 -> 0 -> 1 -> null");
+    expect(list.toString()).toBe("7, 13, 0, 1");
 
     list.deleteAt(3);
     expect(list.size()).toBe(3);
-    expect(list.toString()).toBe("7 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("7, 13, 0");
 
     list.deleteAt(1);
     expect(list.size()).toBe(2);
-    expect(list.toString()).toBe("7 -> 0 -> null");
+    expect(list.toString()).toBe("7, 0");
   });
 
   it("Should not be able to delete element at a non-existing index", () => {
@@ -143,13 +143,13 @@ describe("Test linked list data structure", () => {
     list.append(9);
     list.append(13);
     list.append(0);
-    expect(list.toString()).toBe("9 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("9, 13, 0");
 
     list.set(0, -12);
-    expect(list.toString()).toBe("-12 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("-12, 13, 0");
 
     list.set(2, 37);
-    expect(list.toString()).toBe("-12 -> 13 -> 37 -> null");
+    expect(list.toString()).toBe("-12, 13, 37");
   });
 
   it("Should not be able to set element from an empty list", () => {
@@ -175,11 +175,11 @@ describe("Test linked list data structure", () => {
     list.append(13);
     list.append(0);
     expect(list.size()).toBe(3);
-    expect(list.toString()).toBe("9 -> 13 -> 0 -> null");
+    expect(list.toString()).toBe("9, 13, 0");
 
     list.clear();
     expect(list.size()).toBe(0);
-    expect(list.toString()).toBe("null");
+    expect(list.toString()).toBe("");
     expect(() => list.getFirst()).toThrow(
       "Can not get element from an empty list."
     );

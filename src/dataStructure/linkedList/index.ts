@@ -164,15 +164,18 @@ class LinkedList<Type> {
   }
 
   public toString(): string {
-    let str = "";
-    let node = this.head;
-    while (node) {
-      str += `${node.value} -> `;
-      node = node.next;
+    if (this.isEmpty()) {
+      return "";
     }
 
-    str += "null";
-    return str;
+    let node = this.head;
+    let string = `${node.value}`;
+    while (node.next) {
+      node = node.next;
+      string += `, ${node.value}`;
+    }
+
+    return string;
   }
 }
 
