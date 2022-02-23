@@ -1,5 +1,3 @@
-import { swap } from "../utils";
-
 function selectionSort(list: number[]) {
   for (let i = 0; i < list.length - 1; i += 1) {
     let minValueIndex = i;
@@ -10,7 +8,7 @@ function selectionSort(list: number[]) {
       }
 
       if (list[i] > list[minValueIndex]) {
-        swap(list, i, minValueIndex);
+        [list[i], list[minValueIndex]] = [list[minValueIndex], list[i]];
       }
     }
   }

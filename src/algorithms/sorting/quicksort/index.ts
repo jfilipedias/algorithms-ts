@@ -1,5 +1,3 @@
-import { swap } from "../utils";
-
 function quicksort(list: number[], begin = 0, end: number = null) {
   if (list.length <= 1) return;
 
@@ -18,12 +16,12 @@ function partition(list: number[], begin: number, end: number): number {
 
   for (let i = begin; i < end; i += 1) {
     if (list[i] <= pivotValue) {
-      swap(list, i, index);
+      [list[i], list[index]] = [list[index], list[i]];
       index += 1;
     }
   }
 
-  swap(list, index, end);
+  [list[index], list[end]] = [list[end], list[index]];
 
   return index;
 }
