@@ -1,9 +1,9 @@
 class Stack<Type> {
-  private list: object;
+  private items: object;
   private count: number;
 
   constructor() {
-    this.list = {};
+    this.items = {};
     this.count = 0;
   }
 
@@ -12,11 +12,11 @@ class Stack<Type> {
       throw new Error("Can not get element from an empty stack.");
     }
 
-    return this.list[this.count - 1];
+    return this.items[this.count - 1];
   }
 
-  public push(value: Type): void {
-    this.list[this.count] = value;
+  public push(element: Type): void {
+    this.items[this.count] = element;
     this.count += 1;
   }
 
@@ -26,14 +26,14 @@ class Stack<Type> {
     }
 
     this.count -= 1;
-    const element = this.list[this.count];
-    delete this.list[this.count];
+    const element = this.items[this.count];
+    delete this.items[this.count];
 
     return element;
   }
 
   public clear(): void {
-    this.list = {};
+    this.items = {};
     this.count = 0;
   }
 
@@ -50,10 +50,10 @@ class Stack<Type> {
       return "";
     }
 
-    let str = `${this.list[0]}`;
+    let str = `${this.items[0]}`;
 
     for (let i = 1; i < this.count; i += 1) {
-      str = `${str}, ${this.list[i]}`;
+      str = `${str}, ${this.items[i]}`;
     }
 
     return str;
