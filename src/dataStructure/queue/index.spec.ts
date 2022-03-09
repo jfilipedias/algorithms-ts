@@ -54,4 +54,21 @@ describe("Test queue data structure", () => {
       "Can not get element from an empty queue."
     );
   });
+
+  it("Should be able to clear the queue", () => {
+    const stack = new Queue<number>();
+    stack.enqueue(10);
+    stack.enqueue(-3);
+
+    expect(stack.size()).toBe(2);
+    expect(stack.peek()).toEqual(10);
+    expect(stack.toString()).toBe("10, -3");
+
+    stack.clear();
+    expect(stack.size()).toBe(0);
+    expect(stack.toString()).toBe("");
+    expect(() => stack.peek()).toThrow(
+      "Can not get element from an empty queue."
+    );
+  });
 });
