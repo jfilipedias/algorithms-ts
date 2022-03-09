@@ -19,7 +19,7 @@ describe("Test stack data structure", () => {
 
     stack.push(-3);
     expect(stack.size()).toBe(2);
-    expect(stack.toString()).toBe("-3, 10");
+    expect(stack.toString()).toBe("10, -3");
   });
 
   it("Should be able to pop data", () => {
@@ -32,7 +32,7 @@ describe("Test stack data structure", () => {
     expect(element).toEqual(0);
     expect(stack.size()).toBe(2);
     expect(stack.peek()).toEqual(-3);
-    expect(stack.toString()).toBe("-3, 10");
+    expect(stack.toString()).toBe("10, -3");
   });
 
   it("Should not be able to pop an empty stack", () => {
@@ -48,6 +48,23 @@ describe("Test stack data structure", () => {
     stack.push(-3);
 
     expect(stack.peek()).toEqual(-3);
-    expect(stack.toString()).toBe("-3, 10");
+    expect(stack.toString()).toBe("10, -3");
+  });
+
+  it("Should be able to clear the stack", () => {
+    const stack = new Stack<number>();
+    stack.push(10);
+    stack.push(-3);
+
+    expect(stack.size()).toBe(2);
+    expect(stack.peek()).toEqual(-3);
+    expect(stack.toString()).toBe("10, -3");
+
+    stack.clear();
+    expect(stack.size()).toBe(0);
+    expect(stack.toString()).toBe("");
+    expect(() => stack.peek()).toThrow(
+      "Can not get element from an empty stack."
+    );
   });
 });

@@ -1,21 +1,23 @@
-import LinkedList from "../linkedList";
-
 class Stack<Type> {
-  private list: LinkedList<Type>;
+  private list: object;
+  private count: number;
 
   constructor() {
-    this.list = new LinkedList<Type>();
+    this.list = {};
+    this.count = 0;
   }
 
   public peek(): Type {
     if (this.isEmpty()) {
       throw new Error("Can not get element from an empty stack.");
     }
-    return this.list.getFirst();
+
+    return this.list[this.count - 1];
   }
 
   public push(value: Type): void {
-    this.list.prepend(value);
+    this.list[this.count] = value;
+    this.count += 1;
   }
 
   public pop(): Type {
@@ -23,21 +25,38 @@ class Stack<Type> {
       throw new Error("Can not pop element from an empty stack.");
     }
 
-    const element = this.list.getFirst();
-    this.list.deleteAt(0);
+    this.count -= 1;
+    const element = this.list[this.count];
+    delete this.list[this.count];
+
     return element;
   }
 
+  public clear(): void {
+    this.list = {};
+    this.count = 0;
+  }
+
   public size(): number {
-    return this.list.size();
+    return this.count;
   }
 
   public isEmpty(): boolean {
-    return this.list.isEmpty();
+    return this.count === 0;
   }
 
   public toString(): string {
-    return this.list.toString();
+    if (this.isEmpty()) {
+      return "";
+    }
+
+    let str = `${this.list[0]}`;
+
+    for (let i = 1; i < this.count; i += 1) {
+      str = `${str}, ${this.list[i]}`;
+    }
+
+    return str;
   }
 }
 
