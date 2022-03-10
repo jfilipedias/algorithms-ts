@@ -1,8 +1,8 @@
-class Node<Type> {
-  public value: Type;
-  public next?: Node<Type>;
+class Node<type> {
+  public value: type;
+  public next?: Node<type>;
 
-  constructor(value: Type, next: Node<Type> = null) {
+  constructor(value: type, next: Node<type> = null) {
     this.value = value;
     this.next = next;
   }

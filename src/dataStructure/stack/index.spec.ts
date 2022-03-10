@@ -1,4 +1,4 @@
-import { Stack } from ".";
+import Stack from ".";
 
 describe("Test stack data structure", () => {
   it("Should be able to create a empty stack", () => {
@@ -57,11 +57,13 @@ describe("Test stack data structure", () => {
     stack.push(-3);
 
     expect(stack.size()).toBe(2);
-    expect(stack.peek()).toEqual(-3);
+    expect(stack.isEmpty()).toBe(false);
     expect(stack.toString()).toBe("10, -3");
+    expect(stack.peek()).toEqual(-3);
 
     stack.clear();
     expect(stack.size()).toBe(0);
+    expect(stack.isEmpty()).toBe(true);
     expect(stack.toString()).toBe("");
     expect(() => stack.peek()).toThrow(
       "Can not get element from an empty stack."

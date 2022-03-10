@@ -1,4 +1,4 @@
-import { Queue } from ".";
+import Queue from ".";
 
 describe("Test queue data structure", () => {
   it("Should be able to create an empty queue", () => {
@@ -56,18 +56,20 @@ describe("Test queue data structure", () => {
   });
 
   it("Should be able to clear the queue", () => {
-    const stack = new Queue<number>();
-    stack.enqueue(10);
-    stack.enqueue(-3);
+    const queue = new Queue<number>();
+    queue.enqueue(10);
+    queue.enqueue(-3);
 
-    expect(stack.size()).toBe(2);
-    expect(stack.peek()).toEqual(10);
-    expect(stack.toString()).toBe("10, -3");
+    expect(queue.size()).toBe(2);
+    expect(queue.isEmpty()).toBe(false);
+    expect(queue.toString()).toBe("10, -3");
+    expect(queue.peek()).toEqual(10);
 
-    stack.clear();
-    expect(stack.size()).toBe(0);
-    expect(stack.toString()).toBe("");
-    expect(() => stack.peek()).toThrow(
+    queue.clear();
+    expect(queue.size()).toBe(0);
+    expect(queue.isEmpty()).toBe(true);
+    expect(queue.toString()).toBe("");
+    expect(() => queue.peek()).toThrow(
       "Can not get element from an empty queue."
     );
   });

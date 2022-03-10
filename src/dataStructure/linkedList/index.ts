@@ -1,46 +1,46 @@
 import Node from "./node";
 
-class LinkedList<Type> {
-  private head: Node<Type>;
+class LinkedList<type> {
+  private head: Node<type>;
 
   constructor() {
     this.head = null;
   }
 
-  public append(value: Type): void {
+  public append(value: type): void {
     if (this.head) {
       let node = this.head;
       while (node.next) {
         node = node.next;
       }
-      node.next = new Node<Type>(value);
+      node.next = new Node<type>(value);
     } else {
-      this.head = new Node<Type>(value);
+      this.head = new Node<type>(value);
     }
   }
 
-  public prepend(value: Type): void {
-    const node = new Node<Type>(value, this.head);
+  public prepend(value: type): void {
+    const node = new Node<type>(value, this.head);
     this.head = node;
   }
 
-  public insert(index: number, value: Type): void {
+  public insert(index: number, value: type): void {
     if (index < 0 || index > this.size()) {
       throw new Error("Index out of range.");
     }
 
     if (index === 0) {
-      this.head = new Node<Type>(value, this.head);
+      this.head = new Node<type>(value, this.head);
     } else {
       let node = this.head;
       for (let i = 0; i < index - 1; i += 1) {
         node = node.next;
       }
-      node.next = new Node<Type>(value, node.next);
+      node.next = new Node<type>(value, node.next);
     }
   }
 
-  public delete(value: Type): boolean {
+  public delete(value: type): boolean {
     if (!this.head) {
       throw new Error("Can not delete element from an empty list.");
     }
@@ -82,7 +82,7 @@ class LinkedList<Type> {
     currentNode.next = currentNode.next.next;
   }
 
-  public get(index: number): Type {
+  public get(index: number): type {
     if (index < 0 || index >= this.size()) {
       throw new Error("Index out of range.");
     }
@@ -95,7 +95,7 @@ class LinkedList<Type> {
     return node.value;
   }
 
-  public getFirst(): Type {
+  public getFirst(): type {
     if (this.isEmpty()) {
       throw new Error("Can not get element from an empty list.");
     }
@@ -103,7 +103,7 @@ class LinkedList<Type> {
     return this.head.value;
   }
 
-  public getLast(): Type {
+  public getLast(): type {
     if (this.isEmpty()) {
       throw new Error("Can not get element from an empty list.");
     }
@@ -116,7 +116,7 @@ class LinkedList<Type> {
     return lastNode.value;
   }
 
-  public set(index: number, value: Type): void {
+  public set(index: number, value: type): void {
     if (index < 0 || index >= this.size()) {
       throw new Error("Index out of range.");
     }
@@ -129,7 +129,7 @@ class LinkedList<Type> {
     node.value = value;
   }
 
-  public indexOf(value: Type): number {
+  public indexOf(value: type): number {
     let index = 0;
     let node = this.head;
     while (node) {

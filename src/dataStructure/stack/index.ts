@@ -1,4 +1,4 @@
-class Stack<Type> {
+class Stack<type> {
   private items: object;
   private count: number;
 
@@ -7,7 +7,7 @@ class Stack<Type> {
     this.count = 0;
   }
 
-  public peek(): Type {
+  public peek(): type {
     if (this.isEmpty()) {
       throw new Error("Can not get element from an empty stack.");
     }
@@ -15,12 +15,12 @@ class Stack<Type> {
     return this.items[this.count - 1];
   }
 
-  public push(element: Type): void {
+  public push(element: type): void {
     this.items[this.count] = element;
     this.count += 1;
   }
 
-  public pop(): Type {
+  public pop(): type {
     if (this.isEmpty()) {
       throw new Error("Can not pop element from an empty stack.");
     }
@@ -60,4 +60,4 @@ class Stack<Type> {
   }
 }
 
-export { Stack };
+export default Stack;

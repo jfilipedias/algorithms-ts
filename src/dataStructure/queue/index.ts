@@ -1,4 +1,4 @@
-class Queue<Type> {
+class Queue<type> {
   private items: object;
   private count: number;
   private lowestCount: number;
@@ -9,7 +9,7 @@ class Queue<Type> {
     this.lowestCount = 0;
   }
 
-  public peek(): Type {
+  public peek(): type {
     if (this.isEmpty()) {
       throw new Error("Can not get element from an empty queue.");
     }
@@ -17,12 +17,12 @@ class Queue<Type> {
     return this.items[this.lowestCount];
   }
 
-  public enqueue(element: Type): void {
+  public enqueue(element: type): void {
     this.items[this.count] = element;
     this.count += 1;
   }
 
-  public dequeue(): Type {
+  public dequeue(): type {
     if (this.isEmpty()) {
       throw new Error("Can not dequeue an empty queue.");
     }
@@ -63,4 +63,4 @@ class Queue<Type> {
   }
 }
 
-export { Queue };
+export default Queue;
