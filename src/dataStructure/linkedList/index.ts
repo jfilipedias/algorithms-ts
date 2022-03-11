@@ -2,75 +2,80 @@ import Node from "./node";
 
 class LinkedList<type> {
   private head: Node<type>;
+  private count: number;
 
   constructor() {
     this.head = null;
+    this.count = 0;
   }
 
-  public append(value: type): void {
+  public push(element: type): void {
     if (this.head) {
       let node = this.head;
       while (node.next) {
         node = node.next;
       }
-      node.next = new Node<type>(value);
+      node.next = new Node<type>(element);
     } else {
-      this.head = new Node<type>(value);
+      this.head = new Node<type>(element);
     }
+
+    this.count += 1;
   }
 
-  public prepend(value: type): void {
-    const node = new Node<type>(value, this.head);
+  public prepend(element: type): void {
+    const node = new Node<type>(element, this.head);
     this.head = node;
+    this.count += 1;
   }
 
-  public insert(index: number, value: type): void {
+  public insert(element: type, index: number): void {
     if (index < 0 || index > this.size()) {
       throw new Error("Index out of range.");
     }
 
     if (index === 0) {
-      this.head = new Node<type>(value, this.head);
+      this.head = new Node<type>(element, this.head);
     } else {
       let node = this.head;
       for (let i = 0; i < index - 1; i += 1) {
         node = node.next;
       }
-      node.next = new Node<type>(value, node.next);
+      node.next = new Node<type>(element, node.next);
     }
+
+    this.count += 1;
   }
 
-  public delete(value: type): boolean {
+  public remove(element: type): void {
     if (!this.head) {
       throw new Error("Can not delete element from an empty list.");
     }
 
-    if (this.head.value === value) {
+    if (this.head.element === element) {
       this.head = this.head.next;
-      return true;
+      this.count -= 1;
     }
 
     let currentNode = this.head;
     while (currentNode.next) {
-      if (currentNode.next.value === value) {
+      if (currentNode.next.element === element) {
         currentNode.next = currentNode.next.next;
-
-        return true;
+        this.count -= 1;
       }
 
       currentNode = currentNode.next;
     }
-
-    return false;
   }
 
-  public deleteAt(index: number): void {
+  public removeAt(index: number): void {
     if (index < 0 || index >= this.size()) {
       throw new Error("Index out of range.");
     }
 
     if (index === 0) {
       this.head = this.head.next;
+      this.count -= 1;
       return;
     }
 
@@ -80,9 +85,10 @@ class LinkedList<type> {
     }
 
     currentNode.next = currentNode.next.next;
+    this.count -= 1;
   }
 
-  public get(index: number): type {
+  public getAt(index: number): type {
     if (index < 0 || index >= this.size()) {
       throw new Error("Index out of range.");
     }
@@ -92,7 +98,7 @@ class LinkedList<type> {
       node = node.next;
     }
 
-    return node.value;
+    return node.element;
   }
 
   public getFirst(): type {
@@ -100,7 +106,7 @@ class LinkedList<type> {
       throw new Error("Can not get element from an empty list.");
     }
 
-    return this.head.value;
+    return this.head.element;
   }
 
   public getLast(): type {
@@ -113,10 +119,10 @@ class LinkedList<type> {
       lastNode = lastNode.next;
     }
 
-    return lastNode.value;
+    return lastNode.element;
   }
 
-  public set(index: number, value: type): void {
+  public set(element: type, index: number): void {
     if (index < 0 || index >= this.size()) {
       throw new Error("Index out of range.");
     }
@@ -126,14 +132,14 @@ class LinkedList<type> {
       node = node.next;
     }
 
-    node.value = value;
+    node.element = element;
   }
 
-  public indexOf(value: type): number {
+  public indexOf(element: type): number {
     let index = 0;
     let node = this.head;
     while (node) {
-      if (node.value === value) {
+      if (node.element === element) {
         return index;
       }
 
@@ -146,21 +152,15 @@ class LinkedList<type> {
 
   public clear(): void {
     this.head = null;
+    this.count = 0;
   }
 
   public size(): number {
-    let count = 0;
-    let node = this.head;
-    while (node) {
-      count += 1;
-      node = node.next;
-    }
-
-    return count;
+    return this.count;
   }
 
   public isEmpty(): boolean {
-    return !this.head;
+    return this.count === 0;
   }
 
   public toString(): string {
@@ -169,10 +169,10 @@ class LinkedList<type> {
     }
 
     let node = this.head;
-    let string = `${node.value}`;
+    let string = `${node.element}`;
     while (node.next) {
       node = node.next;
-      string += `, ${node.value}`;
+      string += `, ${node.element}`;
     }
 
     return string;
