@@ -23,69 +23,17 @@ class LinkedList<type> {
     this.count += 1;
   }
 
-  public prepend(element: type): void {
-    const node = new Node<type>(element, this.head);
-    this.head = node;
-    this.count += 1;
-  }
-
-  public insert(element: type, index: number): void {
-    if (index < 0 || index > this.size()) {
-      throw new Error("Index out of range.");
-    }
-
-    if (index === 0) {
-      this.head = new Node<type>(element, this.head);
-    } else {
-      let node = this.head;
-      for (let i = 0; i < index - 1; i += 1) {
-        node = node.next;
-      }
-      node.next = new Node<type>(element, node.next);
-    }
-
-    this.count += 1;
-  }
-
-  public remove(element: type): void {
-    if (!this.head) {
-      throw new Error("Can not delete element from an empty list.");
-    }
-
-    if (this.head.element === element) {
-      this.head = this.head.next;
-      this.count -= 1;
-    }
-
-    let currentNode = this.head;
-    while (currentNode.next) {
-      if (currentNode.next.element === element) {
-        currentNode.next = currentNode.next.next;
-        this.count -= 1;
-      }
-
-      currentNode = currentNode.next;
-    }
-  }
-
-  public removeAt(index: number): void {
+  private getNodeAt(index: number): Node<type> {
     if (index < 0 || index >= this.size()) {
       throw new Error("Index out of range.");
     }
 
-    if (index === 0) {
-      this.head = this.head.next;
-      this.count -= 1;
-      return;
+    let node = this.head;
+    for (let i = 0; i < index; i += 1) {
+      node = node.next;
     }
 
-    let currentNode = this.head;
-    for (let i = 0; i < index - 1; i += 1) {
-      currentNode = currentNode.next;
-    }
-
-    currentNode.next = currentNode.next.next;
-    this.count -= 1;
+    return node;
   }
 
   public getAt(index: number): type {
@@ -93,33 +41,7 @@ class LinkedList<type> {
       throw new Error("Index out of range.");
     }
 
-    let node = this.head;
-    for (let i = 0; i < index; i += 1) {
-      node = node.next;
-    }
-
-    return node.element;
-  }
-
-  public getFirst(): type {
-    if (this.isEmpty()) {
-      throw new Error("Can not get element from an empty list.");
-    }
-
-    return this.head.element;
-  }
-
-  public getLast(): type {
-    if (this.isEmpty()) {
-      throw new Error("Can not get element from an empty list.");
-    }
-
-    let lastNode = this.head;
-    while (lastNode.next) {
-      lastNode = lastNode.next;
-    }
-
-    return lastNode.element;
+    return this.getNodeAt(index).element;
   }
 
   public set(element: type, index: number): void {
@@ -127,17 +49,35 @@ class LinkedList<type> {
       throw new Error("Index out of range.");
     }
 
-    let node = this.head;
-    for (let i = 0; i < index; i += 1) {
-      node = node.next;
+    const node = this.getNodeAt(index);
+    node.element = element;
+  }
+
+  public insert(element: type, index: number): void {
+    if (index < 0 || index > this.size()) {
+      throw new Error("Index out of range.");
     }
 
-    node.element = element;
+    const node = new Node<type>(element);
+
+    if (index === 0) {
+      const current = this.head;
+      node.next = current;
+      this.head = node;
+    } else {
+      const previous = this.getNodeAt(index - 1);
+      const current = previous.next;
+      node.next = current;
+      previous.next = node;
+    }
+
+    this.count += 1;
   }
 
   public indexOf(element: type): number {
     let index = 0;
     let node = this.head;
+
     while (node) {
       if (node.element === element) {
         return index;
@@ -148,6 +88,46 @@ class LinkedList<type> {
     }
 
     return -1;
+  }
+
+  public removeAt(index: number): type {
+    if (index < 0 || index >= this.size()) {
+      throw new Error("Index out of range.");
+    }
+
+    let current = this.head;
+
+    if (index === 0) {
+      this.head = current.next;
+    } else {
+      const previous = this.getNodeAt(index - 1);
+      current = previous.next;
+      previous.next = current.next;
+    }
+
+    this.count -= 1;
+    return current.element;
+  }
+
+  public remove(element: type): type {
+    if (!this.head) {
+      throw new Error("Can not remove element from an empty list.");
+    }
+
+    const index = this.indexOf(element);
+    if (index === -1) {
+      throw new Error("Can not remove a non-existing element.");
+    }
+
+    return this.removeAt(index);
+  }
+
+  public getHead(): type {
+    if (this.isEmpty()) {
+      throw new Error("Can not get head of an empty list.");
+    }
+
+    return this.head.element;
   }
 
   public clear(): void {
