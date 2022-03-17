@@ -1,7 +1,7 @@
 class DoublyNode<type> {
-  private element: type;
-  private next?: DoublyNode<type>;
-  private previous?: DoublyNode<type>;
+  public element: type;
+  public next?: DoublyNode<type>;
+  public previous?: DoublyNode<type>;
 
   constructor(
     element: type,
