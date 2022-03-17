@@ -150,12 +150,20 @@ class DoublyLinkedList<type> {
     return this.removeAt(index);
   }
 
-  public getHead(): DoublyNode<type> {
-    return this.head;
+  public getHead(): type {
+    if (this.isEmpty()) {
+      throw new Error("Can not get head of an empty list.");
+    }
+
+    return this.head.element;
   }
 
-  public getTail(): DoublyNode<type> {
-    return this.tail;
+  public getTail(): type {
+    if (this.isEmpty()) {
+      throw new Error("Can not get tail of an empty list.");
+    }
+
+    return this.tail.element;
   }
 
   public clear(): void {
