@@ -8,6 +8,7 @@ describe("Test doubly linked list data structure", () => {
     expect(list.toString()).toBe("");
     expect(() => list.getAt(0)).toThrow("Index out of range.");
     expect(() => list.getHead()).toThrow("Can not get head of an empty list.");
+    expect(() => list.getTail()).toThrow("Can not get tail of an empty list.");
   });
 
   it("Should be able to add multiple elements to the list", () => {
@@ -22,15 +23,17 @@ describe("Test doubly linked list data structure", () => {
 
   it("Should be able to insert element to the list", () => {
     const list = new DoublyLinkedList<number>();
+    list.insert(-27, 0);
     list.push(37);
     list.push(0);
 
     list.insert(-12, 0);
     list.insert(-13, 1);
     list.insert(69, 2);
+    list.insert(100, 6);
 
-    expect(list.size()).toBe(5);
-    expect(list.toString()).toBe("-12, -13, 69, 37, 0");
+    expect(list.size()).toBe(7);
+    expect(list.toString()).toBe("-12, -13, 69, -27, 37, 0, 100");
   });
 
   it("Should not be able to insert an element to a no-existing index", () => {
@@ -56,6 +59,11 @@ describe("Test doubly linked list data structure", () => {
     expect(removed).toBe(13);
     expect(list.size()).toBe(2);
     expect(list.toString()).toBe("-2, 0");
+
+    list.remove(0);
+    list.remove(-2);
+    expect(list.size()).toBe(0);
+    expect(list.toString()).toBe("");
   });
 
   it("Should not be able to remove a non-existing element", () => {
@@ -119,6 +127,7 @@ describe("Test doubly linked list data structure", () => {
     list.push(0);
 
     expect(list.getHead()).toBe(9);
+    expect(list.getTail()).toBe(0);
     expect(list.getAt(0)).toBe(9);
     expect(list.getAt(1)).toBe(13);
     expect(list.getAt(2)).toBe(0);
@@ -173,5 +182,6 @@ describe("Test doubly linked list data structure", () => {
     expect(list.size()).toBe(0);
     expect(list.toString()).toBe("");
     expect(() => list.getHead()).toThrow("Can not get head of an empty list.");
+    expect(() => list.getTail()).toThrow("Can not get tail of an empty list.");
   });
 });
