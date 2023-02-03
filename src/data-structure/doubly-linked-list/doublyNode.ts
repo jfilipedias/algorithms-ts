@@ -1,17 +1,16 @@
-class DoublyNode<type> {
-  public element: type;
-  public next?: DoublyNode<type>;
-  public previous?: DoublyNode<type>;
+/* eslint-disable no-use-before-define */
+export class DoublyNode<T> {
+  public element: T
+  public next?: DoublyNode<T>
+  public previous?: DoublyNode<T>
 
   constructor(
-    element: type,
-    next: DoublyNode<type> = null,
-    previous: DoublyNode<type> = null
+    element: T,
+    next: DoublyNode<T> = null,
+    previous: DoublyNode<T> = null,
   ) {
-    this.element = element;
-    this.next = next;
-    this.previous = previous;
+    this.element = element
+    this.next = next
+    this.previous = previous
   }
 }
-
-export default DoublyNode;

@@ -1,11 +1,10 @@
-class Node<type> {
-  public element: type;
-  public next?: Node<type>;
+/* eslint-disable no-use-before-define */
+export class Node<T> {
+  public element: T
+  public next?: Node<T>
 
-  constructor(element: type, next: Node<type> = null) {
-    this.element = element;
-    this.next = next;
+  constructor(element: T, next: Node<T> = null) {
+    this.element = element
+    this.next = next
   }
 }
-
-export default Node;

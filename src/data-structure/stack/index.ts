@@ -1,63 +1,61 @@
-class Stack<type> {
-  private items: object;
-  private count: number;
+export class Stack<T> {
+  private items: object
+  private count: number
 
   constructor() {
-    this.items = {};
-    this.count = 0;
+    this.items = {}
+    this.count = 0
   }
 
-  public peek(): type {
+  public peek(): T {
     if (this.isEmpty()) {
-      throw new Error("Can not get element from an empty stack.");
+      throw new Error('Can not get element from an empty stack.')
     }
 
-    return this.items[this.count - 1];
+    return this.items[this.count - 1]
   }
 
-  public push(element: type): void {
-    this.items[this.count] = element;
-    this.count += 1;
+  public push(element: T): void {
+    this.items[this.count] = element
+    this.count += 1
   }
 
-  public pop(): type {
+  public pop(): T {
     if (this.isEmpty()) {
-      throw new Error("Can not pop element from an empty stack.");
+      throw new Error('Can not pop element from an empty stack.')
     }
 
-    this.count -= 1;
-    const element = this.items[this.count];
-    delete this.items[this.count];
+    this.count -= 1
+    const element = this.items[this.count]
+    delete this.items[this.count]
 
-    return element;
+    return element
   }
 
   public clear(): void {
-    this.items = {};
-    this.count = 0;
+    this.items = {}
+    this.count = 0
   }
 
   public size(): number {
-    return this.count;
+    return this.count
   }
 
   public isEmpty(): boolean {
-    return this.count === 0;
+    return this.count === 0
   }
 
   public toString(): string {
     if (this.isEmpty()) {
-      return "";
+      return ''
     }
 
-    let str = `${this.items[0]}`;
+    let str = `${this.items[0]}`
 
     for (let i = 1; i < this.count; i += 1) {
-      str = `${str}, ${this.items[i]}`;
+      str = `${str}, ${this.items[i]}`
     }
 
-    return str;
+    return str
   }
 }
-
-export default Stack;
