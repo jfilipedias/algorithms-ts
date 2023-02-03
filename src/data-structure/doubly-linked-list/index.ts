@@ -1,8 +1,8 @@
 import { DoublyNode } from './doublyNode'
 
-export class DoublyLinkedList<type> {
-  private head: DoublyNode<type>
-  private tail: DoublyNode<type>
+export class DoublyLinkedList<T> {
+  private head: DoublyNode<T>
+  private tail: DoublyNode<T>
   private count: number
 
   constructor() {
@@ -11,7 +11,7 @@ export class DoublyLinkedList<type> {
     this.count = 0
   }
 
-  public push(element: type): void {
+  public push(element: T): void {
     const node = new DoublyNode(element)
 
     if (this.tail) {
@@ -26,7 +26,7 @@ export class DoublyLinkedList<type> {
     this.count += 1
   }
 
-  private getNodeAt(index: number): DoublyNode<type> {
+  private getNodeAt(index: number): DoublyNode<T> {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -39,7 +39,7 @@ export class DoublyLinkedList<type> {
     return node
   }
 
-  public getAt(index: number): type {
+  public getAt(index: number): T {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -47,7 +47,7 @@ export class DoublyLinkedList<type> {
     return this.getNodeAt(index).element
   }
 
-  public set(element: type, index: number): void {
+  public set(element: T, index: number): void {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -56,7 +56,7 @@ export class DoublyLinkedList<type> {
     node.element = element
   }
 
-  public insert(element: type, index: number): void {
+  public insert(element: T, index: number): void {
     if (index < 0 || index > this.size()) {
       throw new Error('Index out of range.')
     }
@@ -89,7 +89,7 @@ export class DoublyLinkedList<type> {
     this.count += 1
   }
 
-  public indexOf(element: type): number {
+  public indexOf(element: T): number {
     let index = 0
     let node = this.head
 
@@ -105,7 +105,7 @@ export class DoublyLinkedList<type> {
     return -1
   }
 
-  public removeAt(index: number): type {
+  public removeAt(index: number): T {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -136,7 +136,7 @@ export class DoublyLinkedList<type> {
     return current.element
   }
 
-  public remove(element: type): type {
+  public remove(element: T): T {
     if (!this.head) {
       throw new Error('Can not remove element from an empty list.')
     }
@@ -149,7 +149,7 @@ export class DoublyLinkedList<type> {
     return this.removeAt(index)
   }
 
-  public getHead(): type {
+  public getHead(): T {
     if (this.isEmpty()) {
       throw new Error('Can not get head of an empty list.')
     }
@@ -157,7 +157,7 @@ export class DoublyLinkedList<type> {
     return this.head.element
   }
 
-  public getTail(): type {
+  public getTail(): T {
     if (this.isEmpty()) {
       throw new Error('Can not get tail of an empty list.')
     }
