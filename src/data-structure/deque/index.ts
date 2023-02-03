@@ -1,4 +1,4 @@
-export class Dequeue<T> {
+export class Deque<T> {
   private items: object
   private count: number
   private lowestCount: number
@@ -33,7 +33,7 @@ export class Dequeue<T> {
 
   public removeFront(): T {
     if (this.isEmpty()) {
-      throw new Error('Can not remove element from an empty dequeue.')
+      throw new Error('Can not remove element from an empty deque.')
     }
 
     const element = this.items[this.lowestCount]
@@ -45,7 +45,7 @@ export class Dequeue<T> {
 
   public removeBack(): T {
     if (this.isEmpty()) {
-      throw new Error('Can not remove element from an empty dequeue.')
+      throw new Error('Can not remove element from an empty deque.')
     }
 
     this.count -= 1
@@ -57,7 +57,7 @@ export class Dequeue<T> {
 
   public peekFront(): T {
     if (this.isEmpty()) {
-      throw new Error('Can not get element from an empty dequeue.')
+      throw new Error('Can not get element from an empty deque.')
     }
 
     return this.items[this.lowestCount]
@@ -65,7 +65,7 @@ export class Dequeue<T> {
 
   public peekBack(): T {
     if (this.isEmpty()) {
-      throw new Error('Can not get element from an empty dequeue.')
+      throw new Error('Can not get element from an empty deque.')
     }
 
     return this.items[this.count - 1]

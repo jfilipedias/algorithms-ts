@@ -19,7 +19,7 @@ Projeto para estudar estrutura de dados e algoritmos com TypeScript.
 
 ## Estrutura de Dados
 
-- [Dequeue](./src/data-structure/dequeue/index.ts)
+- [Deque](./src/data-structure/deque/index.ts)
 - [Doubly Linked List](./src/data-structure/doubly-linked-list/index.ts)
 - [Linked List](./src/data-structure/linked-list/index.ts)
 - [Queue](./src/data-structure/queue/index.ts)
