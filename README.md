@@ -23,7 +23,7 @@ Projeto para estudar estrutura de dados e algoritmos com TypeScript.
 - [Doubly Linked List](./src/data-structure/doubly-linked-list/index.ts)
 - [Linked List](./src/data-structure/linked-list/index.ts)
 - [Queue](./src/data-structure/queue/index.ts)
-- [Stack](./src/data-structure/stack/index.ts)
+- [Stack](./src/data-structure/stack/README.md)
 
 ## Getting Started
 
