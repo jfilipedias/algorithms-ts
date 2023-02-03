@@ -4,7 +4,8 @@
   "description": "A project to study algorithms and data structures",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --runInBand",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .ts ."
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
+    "@vitest/coverage-c8": "^0.28.4",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
