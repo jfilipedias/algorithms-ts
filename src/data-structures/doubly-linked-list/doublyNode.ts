@@ -1,5 +1,7 @@
 /* eslint-disable no-use-before-define */
-export class DoublyNode<T> {
+import { Node } from '../linked-list/node'
+
+export class DoublyNode<T> extends Node<T> {
   public element: T
   public next?: DoublyNode<T>
   public previous?: DoublyNode<T>
@@ -9,8 +11,7 @@ export class DoublyNode<T> {
     next: DoublyNode<T> = null,
     previous: DoublyNode<T> = null,
   ) {
-    this.element = element
-    this.next = next
+    super(element, next)
     this.previous = previous
   }
 }
