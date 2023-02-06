@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido com o objetivo de estudar algoritmos e estrutura d
 - [Deque](./src/data-structure/deque/index.ts)
 - [Doubly Linked List](./src/data-structure/doubly-linked-list/index.ts)
 - [Linked List](./src/data-structure/linked-list/index.ts)
-- [Queue](./src/data-structure/queue/index.ts)
+- [Queue](./src/data-structure/queue/README.md)
 - [Stack](./src/data-structure/stack/README.md)
 
 ## Getting Started
