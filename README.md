@@ -1,6 +1,16 @@
-# Estrutura de Dados e Algoritmos
+# Algoritmos e Estrutura de Dados
 
-Projeto para estudar estrutura de dados e algoritmos com TypeScript.
+<p align="center">
+  <img alt="Developer" src="https://img.shields.io/badge/developer-jfilipedias-blue">
+  <img alt="GitHub" src="https://img.shields.io/github/license/jfilipedias/algorithms">
+</p>
+<br>
+
+Esse projeto foi desenvolvido com o objetivo de estudar algoritmos e estrutura de dados com TypeScript. O projeto usa como base o livro [Estruturas de dados e algoritmos com JavaScript](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed/) da [Loiane Groner](https://twitter.com/loiane).
+
+<div align="center">
+  <img alt="Stack" title="stack" src="./docs/cover.png" />
+</div>
 
 ## Algoritmos
 
