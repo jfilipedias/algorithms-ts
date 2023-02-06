@@ -1,10 +1,10 @@
 # Lista Duplamente Ligada (Double Linked List)
 
-Em ciência da computação, **lista duplamente ligada** é uma estrutura de dados abstrata para uma coleção de itens composta por nós que juntos representam uma sequência.
+Em ciência da computação, **lista duplamente ligada**,assim como na [lista ligada](../linked-list/README.md), utilizamos ponteiros para manter a sequência dos nós.
 
-Na lista ligada, cada nó guarda o valor do elemento propriamente dito e uma referência, ou ponteiro, para o endereço de memória do próximo nó da lista. Desse modo, caso deseje acessar um elemento no meio da lista, será necessário partir do início da lista (head).
+Contudo, nessa estrutura existe uma dupla ligação onde um nó possui dois ponteiros: um para o elemento anterior e outro para o próximo. Desse modo, é possível percorrer a lista do começo para o fim ou vice-versa.
 
-Os métodos implementados para a lista ligada são:
+Os métodos implementados para a lista duplamente ligada são:
 
 - `push(element)`: adiciona um elemento ao final da lista;
 - `remove(element)`: remove um elemento da lista;
