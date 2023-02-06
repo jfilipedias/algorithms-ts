@@ -28,12 +28,11 @@ Esse projeto foi desenvolvido com o objetivo de estudar algoritmos e estrutura d
 - [Quicksort](./src/algorithms/sorting/quicksort/index.ts)
 - [Selection Sort](./src/algorithms/sorting/selection-sort/index.ts)
 
-
 ## Estrutura de Dados
 
 - [Deque](./src/data-structure/deque/README.md)
 - [Doubly Linked List](./src/data-structure/doubly-linked-list/index.ts)
-- [Linked List](./src/data-structure/linked-list/index.ts)
+- [Linked List](./src/data-structure/linked-list/README.md)
 - [Queue](./src/data-structure/queue/README.md)
 - [Stack](./src/data-structure/stack/README.md)
 
@@ -41,7 +40,7 @@ Esse projeto foi desenvolvido com o objetivo de estudar algoritmos e estrutura d
 
 Para executar esse projeto será necessário ter o [Node.js](https://nodejs.org/) e o [pnpm](https://pnpm.io/) instalados.
 
-O projeto é coberto por tests automatizados que executam os algoritmos e estrutura de dados implementados. 
+O projeto é coberto por tests automatizados que executam os algoritmos e estrutura de dados implementados.
 
 Para isso executar os testes execute o comando:
 
