@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import { Node } from '../linked-list/node'
+import { Node } from '@/data-structures/linked-list/node'
 
 export class DoublyNode<T> extends Node<T> {
   public element: T

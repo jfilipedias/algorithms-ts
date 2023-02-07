@@ -1,4 +1,4 @@
-import { DoublyNode } from './doublyNode'
+import { DoublyNode } from './doubly-node'
 
 export class DoublyLinkedList<T> {
   private head: DoublyNode<T>
