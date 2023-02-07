@@ -9,7 +9,6 @@ Os métodos implementados para a lista ligada são:
 - `push(element)`: adiciona um elemento ao final da lista;
 - `remove(element)`: remove um elemento da lista;
 - `removeAt(index)`: remove o elemento no índice especificado;
-- `set(element, index)`: altera o elemento no índice especificado;
 - `insert(element, index)`: insere um elemento no índice especificado
 - `indexOf(element)`: retorna o índice do elemento caso esteja na lista, caso contrário retorna `-1`;
 - `getAt(index)`: retorna o elemento do índice especificado;

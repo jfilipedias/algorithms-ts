@@ -41,16 +41,9 @@ export class LinkedList<T> {
       throw new Error('Index out of range.')
     }
 
-    return this.getNodeAt(index).element
-  }
-
-  public set(element: T, index: number): void {
-    if (index < 0 || index >= this.size()) {
-      throw new Error('Index out of range.')
-    }
-
     const node = this.getNodeAt(index)
-    node.element = element
+
+    return node.element
   }
 
   public insert(element: T, index: number): void {
