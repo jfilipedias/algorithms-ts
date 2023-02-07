@@ -16,13 +16,16 @@ function partition(list: number[], begin: number, end: number): number {
 
   for (let i = begin; i < end; i += 1) {
     if (list[i] <= pivotValue) {
-      ;[list[i], list[index]] = [list[index], list[i]]
+      const temp = list[i]
+      list[i] = list[index]
+      list[index] = temp
 
       index += 1
     }
   }
-
-  ;[list[index], list[end]] = [list[end], list[index]]
+  const temp = list[index]
+  list[index] = list[end]
+  list[end] = temp
 
   return index
 }

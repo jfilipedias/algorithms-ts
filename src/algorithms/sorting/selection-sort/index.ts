@@ -8,7 +8,9 @@ export function selectionSort(list: number[]) {
       }
 
       if (list[i] > list[minValueIndex]) {
-        ;[list[i], list[minValueIndex]] = [list[minValueIndex], list[i]]
+        const temp = list[i]
+        list[i] = list[minValueIndex]
+        list[minValueIndex] = temp
       }
     }
   }
