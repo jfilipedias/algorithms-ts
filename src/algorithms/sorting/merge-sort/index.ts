@@ -1,15 +1,17 @@
-export function mergeSort(list: number[], begin = 0, end: number = null) {
-  if (list.length < 1) return
-
-  if (end === null) end = list.length
-
-  if (end - begin > 1) {
-    const middle = Math.floor((end + begin) / 2)
-
-    mergeSort(list, begin, middle)
-    mergeSort(list, middle, end)
-    merge(list, begin, middle, end)
+export function mergeSort(list: number[], begin = 0, end = -Infinity) {
+  if (end === -Infinity) {
+    end = list.length
   }
+
+  if (list.length < 1 || end - begin <= 1) {
+    return
+  }
+
+  const middle = Math.floor((end + begin) / 2)
+
+  mergeSort(list, begin, middle)
+  mergeSort(list, middle, end)
+  merge(list, begin, middle, end)
 }
 
 function merge(list: number[], begin: number, middle: number, end: number) {
