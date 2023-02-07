@@ -47,15 +47,6 @@ export class DoublyLinkedList<T> {
     return this.getNodeAt(index).element
   }
 
-  public set(element: T, index: number): void {
-    if (index < 0 || index >= this.size()) {
-      throw new Error('Index out of range.')
-    }
-
-    const node = this.getNodeAt(index)
-    node.element = element
-  }
-
   public insert(element: T, index: number): void {
     if (index < 0 || index > this.size()) {
       throw new Error('Index out of range.')

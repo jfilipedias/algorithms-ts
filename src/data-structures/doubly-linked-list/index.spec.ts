@@ -139,26 +139,6 @@ describe('Test doubly linked list data structure', () => {
     expect(() => list.getAt(1)).toThrow('Index out of range.')
   })
 
-  it('Should be able to set element at a specific index', () => {
-    const list = new DoublyLinkedList<number>()
-    list.push(9)
-    list.push(13)
-    list.push(0)
-
-    expect(list.toString()).toBe('9, 13, 0')
-
-    list.set(-12, 0)
-    expect(list.toString()).toBe('-12, 13, 0')
-
-    list.set(37, 2)
-    expect(list.toString()).toBe('-12, 13, 37')
-  })
-
-  it('Should not be able to set element from an empty list', () => {
-    const list = new DoublyLinkedList<number>()
-    expect(() => list.set(0, 1)).toThrow('Index out of range.')
-  })
-
   it('Should be able to get the index of an element', () => {
     const list = new DoublyLinkedList<number>()
     list.push(9)
