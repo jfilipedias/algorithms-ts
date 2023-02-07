@@ -1,13 +1,9 @@
 export class Queue<T> {
-  private items: object
-  private count: number
-  private lowestCount: number
-
-  constructor() {
-    this.items = {}
-    this.count = 0
-    this.lowestCount = 0
-  }
+  constructor(
+    private items: { [key: number]: T } = {},
+    private count = 0,
+    private lowestCount = 0,
+  ) {}
 
   public peek(): T {
     if (this.isEmpty()) {

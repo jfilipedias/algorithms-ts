@@ -1,13 +1,7 @@
 import { Node } from './node'
 
 export class LinkedList<T> {
-  private head: Node<T>
-  private count: number
-
-  constructor() {
-    this.head = null
-    this.count = 0
-  }
+  constructor(private head?: Node<T>, private count = 0) {}
 
   public push(element: T): void {
     if (this.head) {
@@ -23,20 +17,20 @@ export class LinkedList<T> {
     this.count += 1
   }
 
-  private getNodeAt(index: number): Node<T> {
+  private getNodeAt(index: number) {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
 
     let node = this.head
     for (let i = 0; i < index; i += 1) {
-      node = node.next
+      node = node!.next
     }
 
-    return node
+    return node!
   }
 
-  public getAt(index: number): T {
+  public getAt(index: number) {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -67,7 +61,7 @@ export class LinkedList<T> {
     this.count += 1
   }
 
-  public indexOf(element: T): number {
+  public indexOf(element: T) {
     let index = 0
     let node = this.head
 
@@ -83,7 +77,7 @@ export class LinkedList<T> {
     return -1
   }
 
-  public removeAt(index: number): T {
+  public removeAt(index: number) {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -91,18 +85,18 @@ export class LinkedList<T> {
     let current = this.head
 
     if (index === 0) {
-      this.head = current.next
+      this.head = current!.next
     } else {
       const previous = this.getNodeAt(index - 1)
       current = previous.next
-      previous.next = current.next
+      previous.next = current?.next
     }
 
     this.count -= 1
-    return current.element
+    return current!.element
   }
 
-  public remove(element: T): T {
+  public remove(element: T) {
     if (!this.head) {
       throw new Error('Can not remove element from an empty list.')
     }
@@ -115,35 +109,35 @@ export class LinkedList<T> {
     return this.removeAt(index)
   }
 
-  public getHead(): T {
+  public getHead() {
     if (this.isEmpty()) {
       throw new Error('Can not get head of an empty list.')
     }
 
-    return this.head.element
+    return this.head!.element
   }
 
-  public clear(): void {
-    this.head = null
+  public clear() {
+    this.head = undefined
     this.count = 0
   }
 
-  public size(): number {
+  public size() {
     return this.count
   }
 
-  public isEmpty(): boolean {
+  public isEmpty() {
     return this.count === 0
   }
 
-  public toString(): string {
+  public toString() {
     if (this.isEmpty()) {
       return ''
     }
 
     let node = this.head
-    let string = `${node.element}`
-    while (node.next) {
+    let string = `${node?.element}`
+    while (node?.next) {
       node = node.next
       string += `, ${node.element}`
     }

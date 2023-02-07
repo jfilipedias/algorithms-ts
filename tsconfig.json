@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "lib": [
-      "es6"
-    ],
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "typeRoots": [
@@ -12,6 +9,7 @@
     ],
     "removeComments": true,
     "esModuleInterop": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "baseUrl": ".",

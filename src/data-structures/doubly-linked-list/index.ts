@@ -1,17 +1,13 @@
 import { DoublyNode } from './doubly-node'
 
 export class DoublyLinkedList<T> {
-  private head: DoublyNode<T>
-  private tail: DoublyNode<T>
-  private count: number
+  constructor(
+    private head?: DoublyNode<T>,
+    private tail?: DoublyNode<T>,
+    private count = 0,
+  ) {}
 
-  constructor() {
-    this.head = null
-    this.tail = null
-    this.count = 0
-  }
-
-  public push(element: T): void {
+  public push(element: T) {
     const node = new DoublyNode(element)
 
     if (this.tail) {
@@ -26,20 +22,20 @@ export class DoublyLinkedList<T> {
     this.count += 1
   }
 
-  private getNodeAt(index: number): DoublyNode<T> {
+  private getNodeAt(index: number) {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
 
     let node = this.head
     for (let i = 0; i < index; i += 1) {
-      node = node.next
+      node = node!.next
     }
 
-    return node
+    return node!
   }
 
-  public getAt(index: number): T {
+  public getAt(index: number) {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
@@ -47,7 +43,7 @@ export class DoublyLinkedList<T> {
     return this.getNodeAt(index).element
   }
 
-  public insert(element: T, index: number): void {
+  public insert(element: T, index: number) {
     if (index < 0 || index > this.size()) {
       throw new Error('Index out of range.')
     }
@@ -58,14 +54,14 @@ export class DoublyLinkedList<T> {
     if (index === 0) {
       if (this.head) {
         node.next = this.head
-        current.previous = node
+        current!.previous = node
         this.head = node
       } else {
         this.head = node
         this.tail = node
       }
     } else if (index === this.size()) {
-      this.tail.next = node
+      this.tail!.next = node
       node.previous = this.tail
       this.tail = node
     } else {
@@ -74,13 +70,13 @@ export class DoublyLinkedList<T> {
       node.next = current
       node.previous = previous
       previous.next = node
-      current.previous = node
+      current!.previous = node
     }
 
     this.count += 1
   }
 
-  public indexOf(element: T): number {
+  public indexOf(element: T) {
     let index = 0
     let node = this.head
 
@@ -96,30 +92,31 @@ export class DoublyLinkedList<T> {
     return -1
   }
 
-  public removeAt(index: number): T {
+  public removeAt(index: number) {
     if (index < 0 || index >= this.size()) {
       throw new Error('Index out of range.')
     }
 
-    let current = this.head
+    let current = this.head!
 
     if (index === 0) {
-      this.head = current.next
+      this.head = current!.next
 
       if (this.count === 1) {
-        this.tail = null
+        this.tail = undefined
       } else {
-        this.head.previous = null
+        this.head!.previous = undefined
       }
     } else if (index === this.count - 1) {
-      current = this.tail
-      this.tail = current.previous
-      this.tail.next = null
+      current = this.tail!
+      this.tail = current!.previous
+      this.tail!.next = undefined
     } else {
       current = this.getNodeAt(index)
-      const previous = current.previous
-      previous.next = current.next
-      current.next.previous = previous
+
+      const previous = current!.previous
+      previous!.next = current!.next
+      current.next!.previous = previous
     }
 
     this.count -= 1
@@ -127,7 +124,7 @@ export class DoublyLinkedList<T> {
     return current.element
   }
 
-  public remove(element: T): T {
+  public remove(element: T) {
     if (!this.head) {
       throw new Error('Can not remove element from an empty list.')
     }
@@ -140,25 +137,25 @@ export class DoublyLinkedList<T> {
     return this.removeAt(index)
   }
 
-  public getHead(): T {
+  public getHead() {
     if (this.isEmpty()) {
       throw new Error('Can not get head of an empty list.')
     }
 
-    return this.head.element
+    return this.head?.element
   }
 
-  public getTail(): T {
+  public getTail() {
     if (this.isEmpty()) {
       throw new Error('Can not get tail of an empty list.')
     }
 
-    return this.tail.element
+    return this.tail?.element
   }
 
-  public clear(): void {
-    this.head = null
-    this.tail = null
+  public clear() {
+    this.head = undefined
+    this.tail = undefined
     this.count = 0
   }
 
@@ -176,8 +173,8 @@ export class DoublyLinkedList<T> {
     }
 
     let node = this.head
-    let string = `${node.element}`
-    while (node.next) {
+    let string = `${node?.element}`
+    while (node?.next) {
       node = node.next
       string += `, ${node.element}`
     }

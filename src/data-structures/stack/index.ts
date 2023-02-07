@@ -1,11 +1,5 @@
 export class Stack<T> {
-  private items: object
-  private count: number
-
-  constructor() {
-    this.items = {}
-    this.count = 0
-  }
+  constructor(private items: { [key: number]: T } = {}, private count = 0) {}
 
   public peek(): T {
     if (this.isEmpty()) {
