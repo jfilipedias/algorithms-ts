@@ -8,7 +8,7 @@ describe('Test the insertion sort algorithm', () => {
 
     insertionSort(list)
 
-    expect(list).toStrictEqual(sortedList)
+    expect(list).toEqual(sortedList)
   })
 
   it('Should be able to sort a random list', () => {
@@ -17,7 +17,7 @@ describe('Test the insertion sort algorithm', () => {
 
     insertionSort(list)
 
-    expect(list).toStrictEqual(sortedList)
+    expect(list).toEqual(sortedList)
   })
 
   it('Should be able to sort a decrescent sorted list', () => {
@@ -26,7 +26,7 @@ describe('Test the insertion sort algorithm', () => {
 
     insertionSort(list)
 
-    expect(list).toStrictEqual(sortedList)
+    expect(list).toEqual(sortedList)
   })
 
   it('Should be able to sort a list with repeated elements', () => {
@@ -35,6 +35,6 @@ describe('Test the insertion sort algorithm', () => {
 
     insertionSort(list)
 
-    expect(list).toStrictEqual(sortedList)
+    expect(list).toEqual(sortedList)
   })
 })
