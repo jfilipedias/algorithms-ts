@@ -1,7 +1,7 @@
 export class Stack<T> {
   constructor(private items: { [key: number]: T } = {}, private count = 0) {}
 
-  public peek(): T {
+  public peek() {
     if (this.isEmpty()) {
       throw new Error('Can not get element from an empty stack.')
     }
@@ -9,12 +9,12 @@ export class Stack<T> {
     return this.items[this.count - 1]
   }
 
-  public push(element: T): void {
+  public push(element: T) {
     this.items[this.count] = element
     this.count += 1
   }
 
-  public pop(): T {
+  public pop() {
     if (this.isEmpty()) {
       throw new Error('Can not pop element from an empty stack.')
     }
@@ -26,20 +26,20 @@ export class Stack<T> {
     return element
   }
 
-  public clear(): void {
+  public clear() {
     this.items = {}
     this.count = 0
   }
 
-  public size(): number {
+  public size() {
     return this.count
   }
 
-  public isEmpty(): boolean {
+  public isEmpty() {
     return this.count === 0
   }
 
-  public toString(): string {
+  public toString() {
     if (this.isEmpty()) {
       return ''
     }

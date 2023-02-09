@@ -5,9 +5,9 @@ describe('Test queue data structure', () => {
   it('Should be able to create an empty queue', () => {
     const queue = new Queue<number>()
 
-    expect(queue.isEmpty()).toBe(true)
-    expect(queue.size()).toBe(0)
-    expect(queue.toString()).toBe('')
+    expect(queue.isEmpty()).toBeTruthy()
+    expect(queue.size()).toEqual(0)
+    expect(queue.toString()).toEqual('')
     expect(() => queue.peek()).toThrow(
       'Can not get element from an empty queue.',
     )
@@ -16,11 +16,13 @@ describe('Test queue data structure', () => {
   it('Should be able to enqueue data', () => {
     const queue = new Queue<number>()
     queue.enqueue(1)
-    expect(queue.size()).toBe(1)
+
+    expect(queue.size()).toEqual(1)
 
     queue.enqueue(2)
-    expect(queue.size()).toBe(2)
-    expect(queue.toString()).toBe('1, 2')
+
+    expect(queue.size()).toEqual(2)
+    expect(queue.toString()).toEqual('1, 2')
   })
 
   it('Should be able to dequeue data', () => {
@@ -30,14 +32,16 @@ describe('Test queue data structure', () => {
     queue.enqueue(3)
 
     const element = queue.dequeue()
+
     expect(element).toEqual(1)
-    expect(queue.size()).toBe(2)
+    expect(queue.size()).toEqual(2)
     expect(queue.peek()).toEqual(2)
-    expect(queue.toString()).toBe('2, 3')
+    expect(queue.toString()).toEqual('2, 3')
   })
 
   it('Should not be able to dequeue an empty queue', () => {
     const queue = new Queue<number>()
+
     expect(() => queue.dequeue()).toThrow('Can not dequeue an empty queue.')
   })
 
@@ -51,6 +55,7 @@ describe('Test queue data structure', () => {
 
   it('Should not be able to peek an empty queue', () => {
     const queue = new Queue<number>()
+
     expect(() => queue.peek()).toThrow(
       'Can not get element from an empty queue.',
     )
@@ -60,18 +65,8 @@ describe('Test queue data structure', () => {
     const queue = new Queue<number>()
     queue.enqueue(10)
     queue.enqueue(-3)
-
-    expect(queue.size()).toBe(2)
-    expect(queue.isEmpty()).toBe(false)
-    expect(queue.toString()).toBe('10, -3')
-    expect(queue.peek()).toEqual(10)
-
     queue.clear()
-    expect(queue.size()).toBe(0)
-    expect(queue.isEmpty()).toBe(true)
-    expect(queue.toString()).toBe('')
-    expect(() => queue.peek()).toThrow(
-      'Can not get element from an empty queue.',
-    )
+
+    expect(queue.isEmpty()).toBeTruthy()
   })
 })

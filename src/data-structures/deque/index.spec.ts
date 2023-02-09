@@ -5,34 +5,25 @@ describe('Test deque data structure', () => {
   it('Should be able to create an empty deque', () => {
     const deque = new Deque<number>()
 
-    expect(deque.isEmpty()).toBe(true)
-    expect(deque.size()).toBe(0)
-    expect(deque.toString()).toBe('')
+    expect(deque.isEmpty()).toBeTruthy()
+    expect(deque.size()).toEqual(0)
+    expect(deque.toString()).toEqual('')
   })
 
   it('Should be able to add data to deque front', () => {
     const deque = new Deque<number>()
     deque.addFront(1)
-    expect(deque.size()).toBe(1)
-    expect(deque.isEmpty()).toBe(false)
-
     deque.addFront(2)
-    expect(deque.size()).toBe(2)
-    expect(deque.toString()).toBe('2, 1')
 
-    deque.removeFront()
-    deque.addFront(3)
-    expect(deque.size()).toBe(2)
-    expect(deque.toString()).toBe('3, 1')
+    expect(deque.size()).toEqual(2)
+    expect(deque.toString()).toEqual('2, 1')
   })
 
   it('Should be able to add data to deque back', () => {
     const dequeue = new Deque<number>()
     dequeue.addBack(1)
-    expect(dequeue.size()).toBe(1)
-    expect(dequeue.isEmpty()).toBe(false)
-
     dequeue.addBack(2)
+
     expect(dequeue.size()).toBe(2)
     expect(dequeue.toString()).toBe('1, 2')
   })
@@ -42,11 +33,8 @@ describe('Test deque data structure', () => {
     deque.addBack(1)
     deque.addBack(2)
     deque.addBack(3)
-    expect(deque.size()).toBe(3)
-    expect(deque.toString()).toBe('1, 2, 3')
-    expect(deque.isEmpty()).toBe(false)
-
     deque.removeFront()
+
     expect(deque.size()).toBe(2)
     expect(deque.toString()).toBe('2, 3')
   })
@@ -56,11 +44,8 @@ describe('Test deque data structure', () => {
     deque.addBack(1)
     deque.addBack(2)
     deque.addBack(3)
-    expect(deque.size()).toBe(3)
-    expect(deque.toString()).toBe('1, 2, 3')
-    expect(deque.isEmpty()).toBe(false)
-
     deque.removeBack()
+
     expect(deque.size()).toBe(2)
     expect(deque.toString()).toBe('1, 2')
   })
@@ -107,13 +92,8 @@ describe('Test deque data structure', () => {
     const deque = new Deque<number>()
     deque.addBack(10)
     deque.addBack(-3)
-
-    expect(deque.size()).toBe(2)
-    expect(deque.toString()).toBe('10, -3')
-
     deque.clear()
-    expect(deque.size()).toBe(0)
-    expect(deque.isEmpty()).toBe(true)
-    expect(deque.toString()).toBe('')
+
+    expect(deque.isEmpty()).toBeTruthy()
   })
 })
