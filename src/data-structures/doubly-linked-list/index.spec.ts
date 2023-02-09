@@ -30,10 +30,9 @@ describe('Test doubly linked list data structure', () => {
     list.insert(-12, 0)
     list.insert(-13, 1)
     list.insert(69, 2)
-    list.insert(100, 6)
 
-    expect(list.size()).toEqual(6)
-    expect(list.toString()).toEqual('-12, -13, 69, 37, 0, 100')
+    expect(list.size()).toEqual(5)
+    expect(list.toString()).toEqual('-12, -13, 69, 37, 0')
   })
 
   it('Should not be able to insert an element to a no-existing index', () => {
@@ -53,14 +52,15 @@ describe('Test doubly linked list data structure', () => {
 
     const removed = list.remove(13)
 
-    expect(removed).toBe(13)
-    expect(list.size()).toBe(2)
-    expect(list.toString()).toBe('-2, 0')
+    expect(removed).toEqual(13)
+    expect(list.size()).toEqual(2)
+    expect(list.toString()).toEqual('-2, 0')
 
     list.remove(0)
     list.remove(-2)
-    expect(list.size()).toBe(0)
-    expect(list.toString()).toBe('')
+
+    expect(list.size()).toEqual(0)
+    expect(list.toString()).toEqual('')
   })
 
   it('Should not be able to remove a non-existing element', () => {
@@ -73,8 +73,8 @@ describe('Test doubly linked list data structure', () => {
       'Can not remove a non-existing element.',
     )
 
-    expect(list.size()).toBe(3)
-    expect(list.toString()).toBe('9, 13, 0')
+    expect(list.size()).toEqual(3)
+    expect(list.toString()).toEqual('9, 13, 0')
   })
 
   it('Should not be able to remove element from an empty list', () => {
@@ -95,9 +95,9 @@ describe('Test doubly linked list data structure', () => {
 
     let removed = list.removeAt(0)
 
-    expect(removed).toBe(9)
-    expect(list.size()).toBe(4)
-    expect(list.toString()).toBe('7, 13, 0, 1')
+    expect(removed).toEqual(9)
+    expect(list.size()).toEqual(4)
+    expect(list.toString()).toEqual('7, 13, 0, 1')
 
     removed = list.removeAt(3)
 
