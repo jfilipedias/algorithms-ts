@@ -23,6 +23,19 @@ export class Set {
     return true
   }
 
+  public union(otherSet: Set) {
+    const unionSet = new Set()
+
+    Object.values(this.values()).forEach((value) => unionSet.add(value))
+    Object.values(otherSet.values()).forEach((value) => unionSet.add(value))
+
+    return unionSet
+  }
+
+  public values() {
+    return Object.values(this.items)
+  }
+
   public size() {
     return Object.keys(this.items).length
   }

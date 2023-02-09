@@ -7,6 +7,7 @@ describe('Test set data structure', () => {
 
     expect(set.size()).toEqual(0)
     expect(set.isEmpty()).toBeTruthy()
+    expect(set.values()).toEqual([])
   })
 
   it('Should be able to add an element', () => {
@@ -15,8 +16,10 @@ describe('Test set data structure', () => {
     expect(set.add(1)).toBeTruthy()
     expect(set.isEmpty()).toBeFalsy()
     expect(set.size()).toEqual(1)
+    expect(set.values()).toEqual([1])
     expect(set.add(2)).toBeTruthy()
     expect(set.size()).toEqual(2)
+    expect(set.values()).toEqual([1, 2])
   })
 
   it('Should not be able to add the same element', () => {
@@ -46,6 +49,23 @@ describe('Test set data structure', () => {
     set.add(1)
 
     expect(set.remove(2)).toBeFalsy()
+  })
+
+  it('Should be able to join two sets', () => {
+    const setA = new Set()
+    setA.add(1)
+    setA.add(2)
+    setA.add(3)
+
+    const setB = new Set()
+    setB.add(2)
+    setB.add(3)
+    setB.add(4)
+    setB.add(5)
+
+    const unionSet = setA.union(setB)
+
+    expect(unionSet.values()).toEqual([1, 2, 3, 4, 5])
   })
 
   it('Should not be able to clear a set', () => {
