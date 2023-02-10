@@ -19,20 +19,24 @@ describe('Test doubly linked list data structure', () => {
     list.push(13)
     list.push(0)
 
+    expect(list.getHead()).toEqual(9)
+    expect(list.getTail()).toEqual(0)
     expect(list.size()).toEqual(3)
     expect(list.toString()).toEqual('9, 13, 0')
   })
 
   it('Should be able to insert element to the list', () => {
     const list = new DoublyLinkedList<number>()
+    list.insert(5, 0)
     list.push(37)
     list.push(0)
     list.insert(-12, 0)
     list.insert(-13, 1)
     list.insert(69, 2)
+    list.insert(1, 6)
 
-    expect(list.size()).toEqual(5)
-    expect(list.toString()).toEqual('-12, -13, 69, 37, 0')
+    expect(list.size()).toEqual(7)
+    expect(list.toString()).toEqual('-12, -13, 69, 5, 37, 0, 1')
   })
 
   it('Should not be able to insert an element to a no-existing index', () => {
