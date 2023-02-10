@@ -8,6 +8,7 @@ describe('Test set data structure', () => {
     expect(set.size()).toEqual(0)
     expect(set.isEmpty()).toBeTruthy()
     expect(set.values()).toEqual([])
+    expect(set.toString()).toEqual('')
   })
 
   it('Should be able to add an element', () => {
@@ -15,11 +16,10 @@ describe('Test set data structure', () => {
 
     expect(set.add(1)).toBeTruthy()
     expect(set.isEmpty()).toBeFalsy()
-    expect(set.size()).toEqual(1)
-    expect(set.values()).toEqual([1])
     expect(set.add(2)).toBeTruthy()
     expect(set.size()).toEqual(2)
     expect(set.values()).toEqual([1, 2])
+    expect(set.toString()).toEqual('1, 2')
   })
 
   it('Should not be able to add the same element', () => {
@@ -30,25 +30,25 @@ describe('Test set data structure', () => {
     expect(set.size()).toEqual(1)
   })
 
-  it('Should be able to remove an element', () => {
+  it('Should be able to delete an element', () => {
     const set = new Set<number>()
 
     set.add(1)
     set.add(2)
 
     expect(set.size()).toEqual(2)
-    expect(set.remove(1)).toBeTruthy()
+    expect(set.delete(1)).toBeTruthy()
     expect(set.size()).toEqual(1)
   })
 
   it('Should not be able to remove a non-existing element', () => {
     const set = new Set<number>()
 
-    expect(set.remove(1)).toBeFalsy()
+    expect(set.delete(1)).toBeFalsy()
 
     set.add(1)
 
-    expect(set.remove(2)).toBeFalsy()
+    expect(set.delete(2)).toBeFalsy()
   })
 
   it('Should be able to join two sets', () => {
@@ -66,6 +66,7 @@ describe('Test set data structure', () => {
     const unionSet = setA.union(setB)
 
     expect(unionSet.values()).toEqual([1, 2, 3, 4, 5])
+    expect(unionSet.toString()).toEqual('1, 2, 3, 4, 5')
   })
 
   it('Should be able to take the intersection of two sets', () => {
@@ -80,9 +81,10 @@ describe('Test set data structure', () => {
     setB.add(4)
     setB.add(5)
 
-    const unionSet = setA.intersection(setB)
+    const intersectionSet = setA.intersection(setB)
 
-    expect(unionSet.values()).toEqual([2, 3])
+    expect(intersectionSet.values()).toEqual([2, 3])
+    expect(intersectionSet.toString()).toEqual('2, 3')
   })
 
   it('Should be able to take the diference of two sets', () => {
@@ -97,9 +99,10 @@ describe('Test set data structure', () => {
     setB.add(4)
     setB.add(5)
 
-    const unionSet = setA.difference(setB)
+    const differenceSet = setA.difference(setB)
 
-    expect(unionSet.values()).toEqual([1, 2])
+    expect(differenceSet.values()).toEqual([1, 2])
+    expect(differenceSet.toString()).toEqual('1, 2')
   })
 
   it('Should be able check if is a subset', () => {

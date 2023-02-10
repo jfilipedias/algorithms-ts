@@ -33,7 +33,7 @@ export class Set<T> {
     return true
   }
 
-  public remove(element: T) {
+  public delete(element: T) {
     if (this.isEmpty() || !this.has(element)) {
       return false
     }
@@ -95,5 +95,21 @@ export class Set<T> {
     })
 
     return isSubset
+  }
+
+  public toString(): string {
+    if (this.isEmpty()) {
+      return ''
+    }
+
+    const setValues = this.values()
+
+    let str = `${setValues[0]}`
+
+    for (let i = 1; i < setValues.length; i += 1) {
+      str = `${str}, ${setValues[i]}`
+    }
+
+    return str
   }
 }
