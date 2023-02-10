@@ -35,6 +35,7 @@ Esse projeto foi desenvolvido com o objetivo de estudar algoritmos e estrutura d
 - [Linked List](./src/data-structures/linked-list/README.md)
 - [Queue](./src/data-structures/queue/README.md)
 - [Stack](./src/data-structures/stack/README.md)
+- [Set](./src/data-structures/set/README.md)
 
 ## Getting Started
 
