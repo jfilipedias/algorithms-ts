@@ -1,10 +1,14 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { Stack } from '.'
 
 describe('Test stack data structure', () => {
-  it('Should be able to create a empty stack', () => {
-    const stack = new Stack<number>()
+  let stack: Stack<number>
 
+  beforeEach(() => {
+    stack = new Stack<number>()
+  })
+
+  it('Should be able to create a empty stack', () => {
     expect(stack.isEmpty()).toBeTruthy()
     expect(stack.size()).toEqual(0)
     expect(stack.toString()).toEqual('')
@@ -14,7 +18,6 @@ describe('Test stack data structure', () => {
   })
 
   it('Should be able to push data', () => {
-    const stack = new Stack<number>()
     stack.push(10)
 
     expect(stack.size()).toEqual(1)
@@ -26,7 +29,6 @@ describe('Test stack data structure', () => {
   })
 
   it('Should be able to pop data', () => {
-    const stack = new Stack<number>()
     stack.push(10)
     stack.push(-3)
     stack.push(0)
@@ -40,15 +42,12 @@ describe('Test stack data structure', () => {
   })
 
   it('Should not be able to pop an empty stack', () => {
-    const stack = new Stack<number>()
-
     expect(() => stack.pop()).toThrow(
       'Can not pop element from an empty stack.',
     )
   })
 
   it('Should be able to peek data', () => {
-    const stack = new Stack<number>()
     stack.push(10)
     stack.push(-3)
 
@@ -56,7 +55,6 @@ describe('Test stack data structure', () => {
   })
 
   it('Should be able to clear the stack', () => {
-    const stack = new Stack<number>()
     stack.push(10)
     stack.push(-3)
     stack.clear()

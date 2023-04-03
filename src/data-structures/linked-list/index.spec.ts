@@ -1,10 +1,14 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { LinkedList } from '.'
 
 describe('Test linked list data structure', () => {
-  it('Should be able to create an empty linked list', () => {
-    const list = new LinkedList<number>()
+  let list: LinkedList<number>
 
+  beforeEach(() => {
+    list = new LinkedList<number>()
+  })
+
+  it('Should be able to create an empty linked list', () => {
     expect(list.isEmpty()).toBeTruthy()
     expect(list.size()).toEqual(0)
     expect(list.toString()).toEqual('')
@@ -13,7 +17,6 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should be able to add multiple elements to the list', () => {
-    const list = new LinkedList<number>()
     list.push(9)
     list.push(13)
     list.push(0)
@@ -23,7 +26,6 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should be able to insert element to the list', () => {
-    const list = new LinkedList<number>()
     list.push(37)
     list.push(0)
     list.insert(-12, 0)
@@ -34,14 +36,12 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should not be able to insert an element to a no-existing index', () => {
-    const list = new LinkedList<number>()
     list.push(9)
 
     expect(() => list.insert(13, 2)).toThrow('Index out of range.')
   })
 
   it('Should be able to remove an existing element', () => {
-    const list = new LinkedList<number>()
     list.push(-2)
     list.push(13)
     list.push(0)
@@ -57,7 +57,6 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should not be able to remove a non-existing element', () => {
-    const list = new LinkedList<number>()
     list.push(9)
     list.push(13)
     list.push(0)
@@ -68,15 +67,12 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should not be able to remove element from an empty list', () => {
-    const list = new LinkedList<number>()
-
     expect(() => list.remove(15)).toThrow(
       'Can not remove element from an empty list.',
     )
   })
 
   it('Should be able to remove element at a specific index', () => {
-    const list = new LinkedList<number>()
     list.push(9)
     list.push(7)
     list.push(13)
@@ -97,14 +93,12 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should not be able to remove element at a non-existing index', () => {
-    const list = new LinkedList<number>()
     list.push(9)
 
     expect(() => list.removeAt(3)).toThrow('Index out of range.')
   })
 
   it('Should be able to get element at a specific index', () => {
-    const list = new LinkedList<number>()
     list.push(9)
     list.push(13)
     list.push(0)
@@ -116,13 +110,10 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should not be able to get element from an empty list', () => {
-    const list = new LinkedList<number>()
-
     expect(() => list.getAt(1)).toThrow('Index out of range.')
   })
 
   it('Should be able to get the index of an element', () => {
-    const list = new LinkedList<number>()
     list.push(9)
     list.push(13)
     list.push(0)
@@ -134,7 +125,6 @@ describe('Test linked list data structure', () => {
   })
 
   it('Should be able to clear an existing list', () => {
-    const list = new LinkedList<number>()
     list.push(9)
     list.push(13)
     list.push(0)

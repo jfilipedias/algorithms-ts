@@ -1,10 +1,14 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { Set } from '.'
 
 describe('Test set data structure', () => {
-  it('Should be able to create a empty set', () => {
-    const set = new Set<number>()
+  let set: Set<number>
 
+  beforeEach(() => {
+    set = new Set<number>()
+  })
+
+  it('Should be able to create a empty set', () => {
     expect(set.size()).toEqual(0)
     expect(set.isEmpty()).toBeTruthy()
     expect(set.values()).toEqual([])
@@ -12,8 +16,6 @@ describe('Test set data structure', () => {
   })
 
   it('Should be able to add an element', () => {
-    const set = new Set<number>()
-
     expect(set.add(1)).toBeTruthy()
     expect(set.isEmpty()).toBeFalsy()
     expect(set.add(2)).toBeTruthy()
@@ -23,16 +25,12 @@ describe('Test set data structure', () => {
   })
 
   it('Should not be able to add the same element', () => {
-    const set = new Set<number>()
-
     expect(set.add(1)).toBeTruthy()
     expect(set.add(1)).toBeFalsy()
     expect(set.size()).toEqual(1)
   })
 
   it('Should be able to delete an element', () => {
-    const set = new Set<number>()
-
     set.add(1)
     set.add(2)
 
@@ -42,8 +40,6 @@ describe('Test set data structure', () => {
   })
 
   it('Should not be able to remove a non-existing element', () => {
-    const set = new Set<number>()
-
     expect(set.delete(1)).toBeFalsy()
 
     set.add(1)
@@ -119,9 +115,7 @@ describe('Test set data structure', () => {
     expect(setB.isSubsetOf(setA)).toBeFalsy()
   })
 
-  it('Should not be able to clear a set', () => {
-    const set = new Set<number>()
-
+  it('Should be able to clear a set', () => {
     set.add(1)
     set.add(2)
 
